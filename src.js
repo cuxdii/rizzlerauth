@@ -1,1 +1,181 @@
-function _0x3305(){const _0x440801=['!\x20✨\x0aEnter\x20a\x20shortcut\x20(e.g.,\x20study,\x20con,\x20chat,\x20prod,\x20prodhack,\x20com\x20youtube)\x20or\x20type\x20\x22list\x22\x20to\x20see\x20options:','filter','length','includes','🌟\x20Available\x20Shortcuts:\x20🌟\x0a','_blank',']\x20Authentication\x20failed!\x20🚫\x20Please\x20provide\x20a\x20username\x20to\x20use\x20this\x20tool.\x20😔','map','https://raw.githubusercontent.com/cuxdii/rizzlerauth/refs/heads/main/loader','https://tinyurl.com/prodigyrpslol',']\x20Authentication\x20failed!\x20🚫\x20You\x20are\x20not\x20authorized\x20to\x20use\x20this\x20tool.\x20😔','!\x20✨\x20You\x27re\x20all\x20set!\x20Just\x20run\x20this\x20code\x20again\x20in\x20the\x20same\x20tab\x20to\x20use\x20the\x20tool\x20without\x20re-authenticating.\x20🚀','https://sso.prodigygame.com/game/login?rid=90238d3b-439f-4419-9af4-f82450b4903c','startsWith','https://developer.mozilla.org','3052194AnhVPG','text','!\x20📣\x0a\x0a','👋\x20Hey\x20there!\x20To\x20use\x20','6006583wPyunF','Error\x20fetching\x20allowed\x20users:\x20😥','resolve','31498vvzybr','Error\x20fetching\x20announcements:\x20😥','then',']\x20Authentication\x20failed!\x20😢\x20Please\x20check\x20your\x20connection\x20and\x20try\x20again.',',\x20please\x20enter\x20your\x20username:','error','myShortcutToolAuthToken','1741143gTgiow','com\x20','https://www.studyladder.com','https://hack.chat/?rpschat','!\x20✨\x0aEnter\x20a\x20shortcut\x20(e.g.,\x20study,\x20con,\x20chat,\x20prod,\x20prodhack,\x20com\x20youtube)\x20or\x20type\x20\x22list\x22\x20to\x20see\x20options:\x0a\x0aFailed\x20to\x20load\x20announcements.\x20😢\x20Please\x20check\x20your\x20connection.','19aONARv','181900AYXKTu','toLowerCase','908300ujBeoN','substring','🤔\x20Shortcut\x20not\x20found.\x20Type\x20\x22list\x22\x20to\x20see\x20available\x20shortcuts!\x20🧐','https://www.youtube.com','14MUPUCt','.com','253256dpqemV','getItem','\x0a\x0a📣\x20Important\x20Announcements\x20for\x20','153ZPOahU','com\x20[domain]:\x20\x20Go\x20to\x20http://[domain].com','join','✨\x20Welcome\x20to\x20','split','open','catch','🎉\x20Welcome\x20to\x20','trim','5ARrmJM','list','⚠️\x20\x20Please\x20provide\x20a\x20domain\x20name\x20after\x20\x22com\x22.','http://','👉\x20','https://github.com'];_0x3305=function(){return _0x440801;};return _0x3305();}function _0x5634(_0x3b81dc,_0x54bc6f){const _0x3305a2=_0x3305();return _0x5634=function(_0x5634ac,_0x2416ad){_0x5634ac=_0x5634ac-0x1e0;let _0x16e7f2=_0x3305a2[_0x5634ac];return _0x16e7f2;},_0x5634(_0x3b81dc,_0x54bc6f);}(function(_0x21aaa8,_0x338f2e){const _0x4fae3c=_0x5634,_0x30480e=_0x21aaa8();while(!![]){try{const _0x3899c6=parseInt(_0x4fae3c(0x1ef))/0x1*(-parseInt(_0x4fae3c(0x1e3))/0x2)+parseInt(_0x4fae3c(0x1ea))/0x3+-parseInt(_0x4fae3c(0x1f2))/0x4*(-parseInt(_0x4fae3c(0x204))/0x5)+-parseInt(_0x4fae3c(0x219))/0x6+-parseInt(_0x4fae3c(0x1f6))/0x7*(-parseInt(_0x4fae3c(0x1f8))/0x8)+parseInt(_0x4fae3c(0x1fb))/0x9*(-parseInt(_0x4fae3c(0x1f0))/0xa)+parseInt(_0x4fae3c(0x1e0))/0xb;if(_0x3899c6===_0x338f2e)break;else _0x30480e['push'](_0x30480e['shift']());}catch(_0x281b8d){_0x30480e['push'](_0x30480e['shift']());}}}(_0x3305,0x4928f),(function(){const _0x50e887=_0x5634,_0x2f85ed='⚡Quick\x20Client',_0x240c25={'study':_0x50e887(0x1ec),'con':'https://connect.det.wa.edu.au','yt':_0x50e887(0x1f5),'gh':_0x50e887(0x209),'mdn':_0x50e887(0x218),'chat':_0x50e887(0x1ed),'prod':_0x50e887(0x216),'prodhack':_0x50e887(0x213)},_0x201f2c=_0x50e887(0x1e9),_0xa2fe4=_0x50e887(0x212),_0x483cc8='https://raw.githubusercontent.com/cuxdii/rizzlerauth/refs/heads/main/anc';function _0x338ae9(){const _0x2d0422=_0x50e887,_0xb79c7c=localStorage[_0x2d0422(0x1f9)](_0x201f2c);if(_0xb79c7c)return fetch(_0xa2fe4)['then'](_0x28cd8e=>_0x28cd8e[_0x2d0422(0x21a)]())[_0x2d0422(0x1e5)](_0x135e2d=>{const _0x1ce62a=_0x2d0422,_0x379a1e=_0x135e2d[_0x1ce62a(0x1ff)]('\x0a')[_0x1ce62a(0x211)](_0x5ba03f=>_0x5ba03f[_0x1ce62a(0x203)]()['toLowerCase']());return _0x379a1e[_0x1ce62a(0x20d)](_0xb79c7c[_0x1ce62a(0x1f1)]())?!![]:(localStorage['removeItem'](_0x201f2c),![]);})[_0x2d0422(0x201)](_0x402437=>{const _0x8004d2=_0x2d0422;return console[_0x8004d2(0x1e8)](_0x8004d2(0x1e1),_0x402437),alert('['+_0x2f85ed+_0x8004d2(0x1e6)),![];});const _0x1863b9=prompt(_0x2d0422(0x21c)+_0x2f85ed+_0x2d0422(0x1e7));return _0x1863b9?fetch(_0xa2fe4)[_0x2d0422(0x1e5)](_0x3510b4=>_0x3510b4[_0x2d0422(0x21a)]())['then'](_0x492b76=>{const _0x444b53=_0x2d0422,_0x3b2840=_0x492b76[_0x444b53(0x1ff)]('\x0a')['map'](_0x481b71=>_0x481b71[_0x444b53(0x203)]()[_0x444b53(0x1f1)]());return _0x3b2840['includes'](_0x1863b9[_0x444b53(0x1f1)]())?(localStorage['setItem'](_0x201f2c,_0x1863b9),alert(_0x444b53(0x202)+_0x2f85ed+',\x20'+_0x1863b9+_0x444b53(0x215)),!![]):(alert('['+_0x2f85ed+_0x444b53(0x214)),![]);})[_0x2d0422(0x201)](_0x362656=>{const _0x20141e=_0x2d0422;return console[_0x20141e(0x1e8)]('Error\x20fetching\x20allowed\x20users:\x20😥',_0x362656),alert('['+_0x2f85ed+']\x20Authentication\x20failed!\x20😢\x20Please\x20check\x20your\x20connection\x20and\x20try\x20again.'),![];}):(alert('['+_0x2f85ed+_0x2d0422(0x210)),Promise[_0x2d0422(0x1e2)](![]));}function _0x172825(){const _0x4b1017=_0x50e887;fetch(_0x483cc8)[_0x4b1017(0x1e5)](_0x9b833e=>_0x9b833e[_0x4b1017(0x21a)]())[_0x4b1017(0x1e5)](_0x2da0d9=>{const _0x71c188=_0x4b1017,_0x28ee84=_0x2da0d9[_0x71c188(0x1ff)]('\x0a')[_0x71c188(0x20b)](Boolean)[_0x71c188(0x211)](_0x44ec07=>_0x44ec07['trim']());let _0x35ec49='';_0x28ee84[_0x71c188(0x20c)]>0x0&&(_0x35ec49=_0x71c188(0x1fa)+_0x2f85ed+_0x71c188(0x21b)+_0x28ee84[_0x71c188(0x1fd)]('\x0a\x0a'));const _0x1c4025=prompt(_0x71c188(0x1fe)+_0x2f85ed+_0x71c188(0x20a)+_0x35ec49);if(!_0x1c4025)return;const _0x4fbaad=_0x1c4025[_0x71c188(0x1f1)]();if(_0x4fbaad==='list'){let _0x1b22b3=_0x71c188(0x20e);for(const _0x2e1664 in _0x240c25){_0x1b22b3+=_0x71c188(0x208)+_0x2e1664+':\x20'+_0x240c25[_0x2e1664]+'\x0a';}_0x1b22b3+=_0x71c188(0x1fc),alert(_0x1b22b3);return;}if(_0x240c25[_0x4fbaad])window[_0x71c188(0x200)](_0x240c25[_0x4fbaad],_0x71c188(0x20f));else{if(_0x4fbaad['startsWith'](_0x71c188(0x1eb))){const _0x1b9f0c=_0x4fbaad[_0x71c188(0x1f3)](0x4)[_0x71c188(0x203)]();if(_0x1b9f0c){const _0x421364=_0x71c188(0x207)+_0x1b9f0c+_0x71c188(0x1f7);window[_0x71c188(0x200)](_0x421364,_0x71c188(0x20f));}else alert(_0x71c188(0x206));}else alert(_0x71c188(0x1f4));}})[_0x4b1017(0x201)](_0x227a39=>{const _0xebb221=_0x4b1017;console['error'](_0xebb221(0x1e4),_0x227a39);const _0x2afda1=prompt(_0xebb221(0x1fe)+_0x2f85ed+_0xebb221(0x1ee));if(!_0x2afda1)return;const _0x9ace9d=_0x2afda1[_0xebb221(0x1f1)]();if(_0x9ace9d===_0xebb221(0x205)){let _0x43988e=_0xebb221(0x20e);for(const _0x1ab0eb in _0x240c25){_0x43988e+=_0xebb221(0x208)+_0x1ab0eb+':\x20'+_0x240c25[_0x1ab0eb]+'\x0a';}_0x43988e+=_0xebb221(0x1fc),alert(_0x43988e);return;}if(_0x240c25[_0x9ace9d])window[_0xebb221(0x200)](_0x240c25[_0x9ace9d],_0xebb221(0x20f));else{if(_0x9ace9d[_0xebb221(0x217)](_0xebb221(0x1eb))){const _0xdb3bef=_0x9ace9d[_0xebb221(0x1f3)](0x4)['trim']();if(_0xdb3bef){const _0x171d3a=_0xebb221(0x207)+_0xdb3bef+'.com';window[_0xebb221(0x200)](_0x171d3a,_0xebb221(0x20f));}else alert(_0xebb221(0x206));}else alert('🤔\x20Shortcut\x20not\x20found.\x20Type\x20\x22list\x22\x20to\x20see\x20available\x20shortcuts!\x20🧐');}});}_0x338ae9()[_0x50e887(0x1e5)](_0x40e879=>{_0x40e879&&_0x172825();});}()));
+(function() {
+  const SCRIPT_NAME = "⚡Quick Client";
+  const sites = {
+    'study': 'https://www.studyladder.com',
+    'con': 'https://connect.det.wa.edu.au',
+    'yt': 'https://www.youtube.com',
+    'gh': 'https://github.com',
+    'mdn': 'https://developer.mozilla.org',
+    'chat': 'https://hack.chat/?rpschat',
+    'prod': 'https://sso.prodigygame.com/game/login?rid=90238d3b-439f-4419-9af4-f82450b4903c',
+    'prodhack': 'https://tinyurl.com/prodigyrpslol'
+  };
+
+  const AUTH_TOKEN_KEY = 'QuickClientAuth';
+  const ALLOWED_USERS_URL = 'https://raw.githubusercontent.com/cuxdii/rizzlerauth/refs/heads/main/loader';
+  const ANNOUNCEMENTS_URL = 'https://raw.githubusercontent.com/cuxdii/rizzlerauth/refs/heads/main/anc';
+
+  function authenticateUser() {
+    const storedToken = localStorage.getItem(AUTH_TOKEN_KEY);
+
+    if (storedToken) {
+      return fetch(ALLOWED_USERS_URL)
+        .then(response => response.text())
+        .then(allowedUsersText => {
+          const allowedUsers = allowedUsersText.split('\n').map(user => user.trim().toLowerCase());
+          if (allowedUsers.includes(storedToken.toLowerCase())) {
+            return true;
+          } else {
+            localStorage.removeItem(AUTH_TOKEN_KEY);
+            return false;
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching allowed users: 😥", error);
+          alert(`[${SCRIPT_NAME}] Authentication failed! 😢 Please check your connection and try again.`);
+          return false;
+        });
+    }
+
+    const username = prompt(`👋 Hey there! To use ${SCRIPT_NAME}, please enter your username:`);
+
+    if (username) {
+      return fetch(ALLOWED_USERS_URL)
+        .then(response => response.text())
+        .then(allowedUsersText => {
+          const allowedUsers = allowedUsersText.split('\n').map(user => user.trim().toLowerCase());
+          if (allowedUsers.includes(username.toLowerCase())) {
+            localStorage.setItem(AUTH_TOKEN_KEY, username);
+            alert(`🎉 Welcome to ${SCRIPT_NAME}, ${username}! ✨ You're all set! Just run this code again in the same tab to use the tool without re-authenticating. 🚀`);
+            return true;
+          } else {
+            alert(`[${SCRIPT_NAME}] Authentication failed! 🚫 You are not authorized to use this tool. 😔`);
+            return false;
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching allowed users: 😥", error);
+          alert(`[${SCRIPT_NAME}] Authentication failed! 😢 Please check your connection and try again.`);
+          return false;
+        });
+    } else {
+      alert(`[${SCRIPT_NAME}] Authentication failed! 🚫 Please provide a username to use this tool. 😔`);
+      return Promise.resolve(false);
+    }
+  }
+
+  function runTool() {
+    fetch(ANNOUNCEMENTS_URL)
+      .then(response => response.text())
+      .then(announcementsText => {
+        const announcements = announcementsText.split('\n').filter(Boolean).map(s => s.trim());
+        let announcementString = '';
+        if (announcements.length > 0) {
+          announcementString = `\n\n📣 Important Announcements for ${SCRIPT_NAME}! 📣\n\n${announcements.join('\n\n')}`;
+        }
+        const input = prompt(`✨ Welcome to ${SCRIPT_NAME}! ✨
+Enter a shortcut (e.g., study, con, chat, prod, prodhack, com youtube),
+"logout", "switch [username]", or type "list" to see options:${announcementString}`);
+
+        if (!input) return;
+
+        const lowerInput = input.toLowerCase();
+
+        if (lowerInput === 'list') {
+          let message = "🌟 Available Shortcuts: 🌟\n";
+          for (const key in sites) {
+            message += `👉 ${key}: ${sites[key]}\n`;
+          }
+          message += "com [domain]:  Go to http://[domain].com\n";
+          message += "logout: Logout from the current user.\n";
+          message += "switch [username]: Switch to another user.";
+          alert(message);
+          return;
+        } else if (lowerInput === 'logout') {
+          localStorage.removeItem(AUTH_TOKEN_KEY);
+          alert(`👋 You have been logged out. Please run the tool again to log in.`);
+          return;
+        } else if (lowerInput.startsWith('switch ')) {
+          const newUsername = lowerInput.substring(7).trim();
+          if (newUsername) {
+            localStorage.setItem(AUTH_TOKEN_KEY, newUsername);
+            alert(`👋 Switched to user: ${newUsername}. Please run the tool again to use it as this user.`);
+            return;
+          } else {
+            alert('⚠️  Please provide a username after "switch".');
+            return;
+          }
+        }
+
+        if (sites[lowerInput]) {
+          window.open(sites[lowerInput], '_blank');
+        } else if (lowerInput.startsWith('com ')) {
+          const domain = lowerInput.substring(4).trim();
+          if (domain) {
+            const url = `http://${domain}.com`;
+            window.open(url, '_blank');
+          } else {
+            alert('⚠️  Please provide a domain name after "com".');
+          }
+        } else {
+          alert('🤔 Shortcut not found. Type "list" to see available shortcuts! 🧐');
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching announcements: 😥", error);
+        const input = prompt(`✨ Welcome to ${SCRIPT_NAME}! ✨
+Enter a shortcut (e.g., study, con, chat, prod, prodhack, com youtube), "logout", "switch [username]", or type "list" to see options:\n\nFailed to load announcements. 😢 Please check your connection.`);
+
+        if (!input) return;
+
+        const lowerInput = input.toLowerCase();
+
+         if (lowerInput === 'list') {
+          let message = "🌟 Available Shortcuts: 🌟\n";
+          for (const key in sites) {
+            message += `👉 ${key}: ${sites[key]}\n`;
+          }
+          message += "com [domain]:  Go to http://[domain].com\n";
+          message += "logout: Logout from the current user.\n";
+          message += "switch [username]: Switch to another user.";
+          alert(message);
+          return;
+        } else if (lowerInput === 'logout') {
+          localStorage.removeItem(AUTH_TOKEN_KEY);
+          alert(`👋 You have been logged out. Please run the tool again to log in.`);
+          return;
+        } else if (lowerInput.startsWith('switch ')) {
+          const newUsername = lowerInput.substring(7).trim();
+          if (newUsername) {
+            localStorage.setItem(AUTH_TOKEN_KEY, newUsername);
+            alert(`👋 Switched to user: ${newUsername}. Please run the tool again to use it as this user.`);
+            return;
+          } else {
+            alert('⚠️  Please provide a username after "switch".');
+            return;
+          }
+        }
+
+        if (sites[lowerInput]) {
+          window.open(sites[lowerInput], '_blank');
+        } else if (lowerInput.startsWith('com ')) {
+          const domain = lowerInput.substring(4).trim();
+          if (domain) {
+            const url = `http://${domain}.com`;
+            window.open(url, '_blank');
+          } else {
+            alert('⚠️  Please provide a domain name after "com".');
+          }
+        } else {
+          alert('🤔 Shortcut not found. Type "list" to see available shortcuts! 🧐');
+        }
+      });
+  }
+
+  // 3.  Execution Flow
+  authenticateUser().then(isAuthenticated => {
+    if (isAuthenticated) {
+      runTool();
+    }
+  });
+})();

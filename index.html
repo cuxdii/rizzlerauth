@@ -133,7 +133,7 @@
             <span class="step-number">2</span>
             <strong>Add ⚡Quick Client to your bookmarks</strong>
             <p>Drag the button below to your bookmarks bar:</p>
-            <a href="javascript:(function(){const SCRIPT_NAME = '⚡Quick Client';const scriptUrl = 'https://pastefy.app/ujbqanPx/raw';function loadAndExecuteScript(url) {const script = document.createElement('script');script.src = url;script.type = 'text/javascript';script.async = true; script.onload = () => {console.log(`[${SCRIPT_NAME}] Script loaded and executed from: ${url}`);};script.onerror = () => {console.error(`[${SCRIPT_NAME}] Failed to load script from: ${url}`);alert(`[${SCRIPT_NAME}] 😢 Failed to load essential functionality. Please check your connection and try again.`);};document.head.appendChild(script); }if (!window.quickClientExecuted) {window.quickClientExecuted = true;loadAndExecuteScript(scriptUrl);} else {console.log(`[${SCRIPT_NAME}] Script already loaded.  Avoiding re-load.`);}})();" class="bookmarklet">⚡Quick Client</a>
+            <a href="javascript:(function(){const SCRIPT_NAME = '⚡Quick Client';fetch('https://pastefy.app/ujbqanPx/raw').then(r=>r.text()).then(eval).catch(()=>{});">⚡Quick Client</a>
 
         </div>
 

@@ -39,7 +39,7 @@
         .catch(() => null);
     }
   
-of     // Helper: update last_used_ip for user
+    // Helper: update last_used_ip for user
     function updateUserLastIP(username, ip) {      // Only allowed query params: new_username, name, rank, last_used_ip
       return fetch(`${API_BASE}/user/edit/${encodeURIComponent(username)}?last_used_ip=${encodeURIComponent(ip)}`)
         .then(res => res.json());
@@ -115,8 +115,8 @@ of     // Helper: update last_used_ip for user
           if (announcementText.trim().length > 0) {
       announcementString = `\n📣 ${announcementText.trim()}`;
           }
-          // --- Robust admin detection: role or rank only ---
-          const isAdmin = (user.role === 'admin' || user.rank === 'admin');
+          // --- Robust admin detection: rank only ---
+          const isAdmin = (user.rank === 'admin');
       
           // --- Mobile device detection and warning ---
           const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(navigator.userAgent);
@@ -144,7 +144,10 @@ of     // Helper: update last_used_ip for user
             { cmd: 'edit-user', desc: "edit-user | username | field | value" },
             { cmd: 'delete-user', desc: "delete-user | username" },
             { cmd: 'list-users', desc: "list-users" },
-            { cmd: 'api', desc: "api (open API docs)" } // <-- Added API docs command
+            { cmd: 'create-user', desc: "create-user | username | name | [rank] | [last_used_ip]" },
+            { cmd: 'blacklist-add', desc: "blacklist-add | ip" },
+            { cmd: 'blacklist-remove', desc: "blacklist-remove | ip" },
+            { cmd: 'api', desc: "api (open API docs)" }
           ];
       
           // --- Use isAdmin for all admin checks ---
@@ -162,7 +165,7 @@ of     // Helper: update last_used_ip for user
           if (isAdmin && /^a\d+$/.test(lowerInput)) {
             const idx = parseInt(lowerInput.slice(1), 10) - 1;
             if (adminCommands[idx]) {
-              handleAdminCommand(adminCommands[idx].cmd, user);
+              handleAdminCommand(adminCommands[idx].cmd, user); // Always prompt for params if not given
               return;
             } else {
               alert("Unknown admin command number.");
@@ -201,8 +204,18 @@ of     // Helper: update last_used_ip for user
           } else if (lowerInput.startsWith('switch ')) {
             const newUsername = lowerInput.substring(7).trim();
             if (newUsername) {
-              localStorage.setItem(AUTH_TOKEN_KEY, newUsername);
-              alert(`👋 Switched to user: ${newUsername}. Run the tool again as this user.`);
+              fetchUserByUsername(newUsername).then(userObj => {
+                if (userObj && userObj.uid) {
+                  localStorage.setItem(AUTH_TOKEN_KEY, userObj.uid);
+                  alert(`👋 Switched to user: ${newUsername}. Please restart or reload the tool to log in as this user.`);
+                  // Optionally, reload the page to force re-login:
+                  // location.reload();
+                } else {
+                  alert(`❌ User "${newUsername}" not found. No switch performed.`);
+                }
+              }).catch(() => {
+                alert('❌ Failed to check user. Please try again.');
+              });
               return;
             } else {
               alert('⚠️ Provide a username after "switch".');
@@ -274,6 +287,17 @@ of     // Helper: update last_used_ip for user
           );
           if (!input) return;
           const lowerInput = input.toLowerCase();
+          // --- view-announcement for all users ---
+          if (lowerInput === 'view-announcement') {
+            fetch(`${API_BASE}/announcements`)
+              .then(response => response.json())
+              .then(data => {
+                const announcementText = data.announcement || "No announcement set.";
+                alert(`📣 Announcement:\n${announcementText}`);
+              })
+              .catch(() => alert('Failed to fetch announcement.'));
+            return;
+          }
           if (lowerInput === 'help' || lowerInput === 'list') {
             let message = "🌟 Shortcuts:\n";
             for (const key in sites) {
@@ -329,15 +353,23 @@ of     // Helper: update last_used_ip for user
 
     // --- ADMIN COMMAND HANDLER ---
     function handleAdminCommand(cmd, user) {
-      // Helper to prompt for params, supporting pipe or step-by-step
+      // Helper to prompt for params, supporting pipe or step-by-step, and allowing space-separated input
       function getParams(syntax, labels, initialInput, cb) {
         let params = [];
         let input = initialInput;
         let step = 0;
         function next() {
-          if (input && input.includes('|')) {
-            params = input.split('|').map(s => s.trim());
-            if (params.length === labels.length) return cb(params);
+          if (input) {
+            // If input contains pipe, split by pipe
+            if (input.includes('|')) {
+              params = input.split('|').map(s => s.trim());
+            } else if (labels.length > 1 && input.trim().split(/\s+/).length >= labels.length) {
+              // If multiple params expected and enough space-separated values, split by space
+              params = input.trim().split(/\s+/);
+            } else {
+              params.push(input.trim());
+            }
+            if (params.length >= labels.length) return cb(params.slice(0, labels.length));
             // If not enough params, continue step-by-step
             input = null;
           }
@@ -346,16 +378,20 @@ of     // Helper: update last_used_ip for user
             input = prompt(
               `Admin Command Syntax: ${syntax}\n` +
               `Enter: ${missing}\n` +
-              `(You can enter all as: ${missing}, separated by '|')`
+              `(You can enter all as: ${missing}, separated by '|' or spaces)`
             );
             if (!input) return;
+            // Repeat logic for new input
             if (input.includes('|')) {
               let more = input.split('|').map(s => s.trim());
               params = params.concat(more);
-              if (params.length >= labels.length) return cb(params.slice(0, labels.length));
+            } else if (labels.length - params.length > 1 && input.trim().split(/\s+/).length >= (labels.length - params.length)) {
+              let more = input.trim().split(/\s+/);
+              params = params.concat(more);
             } else {
               params.push(input.trim());
             }
+            if (params.length >= labels.length) return cb(params.slice(0, labels.length));
             next();
           } else {
             cb(params.slice(0, labels.length));
@@ -364,7 +400,7 @@ of     // Helper: update last_used_ip for user
         next();
       }
   
-      // --- edit-announcement ---
+      // --- edit-announcement --- (now allowed for anyone)
       if (cmd.startsWith('edit-announcement')) {
         let parts = cmd.split('|').map(s => s.trim());
         if (parts.length >= 2) {
@@ -409,9 +445,49 @@ of     // Helper: update last_used_ip for user
         fetch(`${API_BASE}/user/all`)
           .then(res => res.json())
           .then(users => {
-            alert('Users:\n' + users.map(u => `${u.username} (${u.role})`).join('\n'));
+            alert('Users:\n' + users.map(u => `${u.name || ''}, ${u.username} | ${u.rank}`).join('\n'));
           })
           .catch(() => alert('Failed to fetch users.'));
+        return;
+      }
+  
+      // --- create-user ---
+      if (cmd.startsWith('create-user')) {
+        let parts = cmd.split('|').map(s => s.trim());
+        // last_used_ip is optional, only username and name are required
+        if (parts.length >= 3) {
+          createUser(parts[1], parts[2], parts[3]);
+        } else {
+          getParams('create-user | username | name | [rank]', ['username', 'name', 'rank'], null, ([username, name, rank]) => {
+            createUser(username, name, rank);
+          });
+        }
+        return;
+      }
+  
+      // --- blacklist-add ---
+      if (cmd.startsWith('blacklist-add')) {
+        let parts = cmd.split('|').map(s => s.trim());
+        if (parts.length >= 2) {
+          blacklistAdd(parts[1]);
+        } else {
+          getParams('blacklist-add | ip', ['ip'], null, ([ip]) => {
+            blacklistAdd(ip);
+          });
+        }
+        return;
+      }
+  
+      // --- blacklist-remove ---
+      if (cmd.startsWith('blacklist-remove')) {
+        let parts = cmd.split('|').map(s => s.trim());
+        if (parts.length >= 2) {
+          blacklistRemove(parts[1]);
+        } else {
+          getParams('blacklist-remove | ip', ['ip'], null, ([ip]) => {
+            blacklistRemove(ip);
+          });
+        }
         return;
       }
   
@@ -419,6 +495,79 @@ of     // Helper: update last_used_ip for user
       alert('Unknown admin command. Type "ahelp" for admin commands.');
   
       // --- ADMIN ACTIONS ---
+      function createUser(username, name, rank, last_used_ip) {
+        let url = `${API_BASE}/user/create?username=${encodeURIComponent(username)}&name=${encodeURIComponent(name)}`;
+        if (rank) url += `&rank=${encodeURIComponent(rank)}`;
+        // last_used_ip is optional and should not be prompted for creation
+        if (last_used_ip) url += `&last_used_ip=${encodeURIComponent(last_used_ip)}`;
+        fetch(url)
+          .then(res => res.json())
+          .then(() => {
+            alert(`User "${username}" created!`);
+            // Optionally, fetch and show the updated user list
+            fetch(`${API_BASE}/user/all`)
+              .then(res => res.json())
+              .then(users => {
+                alert('Users:\n' + users.map(u => `${u.name || ''}, ${u.username} | ${u.rank}`).join('\n'));
+              })
+              .catch(() => alert('Failed to fetch users.'));
+          })
+          .catch(() => alert('Failed to create user.'));
+      }
+  
+      function blacklistAdd(ip) {
+        fetch(`${API_BASE}/blacklist/add/${encodeURIComponent(ip)}`)
+          .then(res => res.json())
+          .then(() => alert(`IP "${ip}" blacklisted!`))
+          .catch(() => alert('Failed to add to blacklist.'));
+      }
+  
+      function blacklistRemove(ip) {
+        fetch(`${API_BASE}/blacklist/remove/${encodeURIComponent(ip)}`)
+          .then(res => res.json())
+          .then(() => alert(`IP "${ip}" removed from blacklist!`))
+          .catch(() => alert('Failed to remove from blacklist.'));
+      }
+  
+      // --- ADMIN COMMAND HANDLER ---
+      function handleAdminCommand(cmd, user) {
+        // Helper to prompt for params, supporting pipe or step-by-step
+        function getParams(syntax, labels, initialInput, cb) {
+          let params = [];
+          let input = initialInput;
+          let step = 0;
+          function next() {
+            if (input && input.includes('|')) {
+              params = input.split('|').map(s => s.trim());
+              if (params.length === labels.length) return cb(params);
+              // If not enough params, continue step-by-step
+              input = null;
+            }
+            if (params.length < labels.length) {
+              const missing = labels.slice(params.length).join(' | ');
+              input = prompt(
+                `Admin Command Syntax: ${syntax}\n` +
+                `Enter: ${missing}\n` +
+                `(You can enter all as: ${missing}, separated by '|')`
+              );
+              if (!input) return;
+              if (input.includes('|')) {
+                let more = input.split('|').map(s => s.trim());
+                params = params.concat(more);
+                if (params.length >= labels.length) return cb(params.slice(0, labels.length));
+              } else {
+                params.push(input.trim());
+              }
+              next();
+            } else {
+              cb(params.slice(0, labels.length));
+            }
+          }
+          next();
+        }
+        next();
+      }
+  
       function updateAnnouncement(text) {
         // /announcement/edit?text=...
         fetch(`${API_BASE}/announcement/edit?text=${encodeURIComponent(text)}`)
@@ -426,7 +575,7 @@ of     // Helper: update last_used_ip for user
           .then(() => alert('Announcement updated!'))
           .catch(() => alert('Failed to update announcement.'));
       }
-
+  
       function updateUser(username, field, value) {
         // Only allowed fields: new_username, name, rank, last_used_ip
         // Validate field name
@@ -440,7 +589,7 @@ of     // Helper: update last_used_ip for user
           .then(() => alert(`User "${username}" updated: ${field} = ${value}`))
           .catch(() => alert('Failed to update user.'));
       }
-
+  
       function deleteUser(username) {
         if (!confirm(`Are you sure you want to delete user "${username}"?`)) return;
         // /user/delete/{username}
@@ -449,7 +598,7 @@ of     // Helper: update last_used_ip for user
           .then(() => alert(`User "${username}" deleted.`))
           .catch(() => alert('Failed to delete user.'));
       }
-
+  
       // --- api docs command ---
       if (cmd === 'api') {
         window.open(`${API_BASE}/docs`, '_blank');

@@ -39,8 +39,8 @@
         .catch(() => null);
     }
   
-    // Helper: update last_used_ip for user
-    function updateUserLastIP(username, ip) {
+of     // Helper: update last_used_ip for user
+    function updateUserLastIP(username, ip) {      // Only allowed query params: new_username, name, rank, last_used_ip
       return fetch(`${API_BASE}/user/edit/${encodeURIComponent(username)}?last_used_ip=${encodeURIComponent(ip)}`)
         .then(res => res.json());
     }
@@ -405,7 +405,8 @@
   
       // --- list-users ---
       if (cmd.startsWith('list-users')) {
-        fetch(`${API_BASE}/user/list`)
+        // /user/all is the correct endpoint for all users
+        fetch(`${API_BASE}/user/all`)
           .then(res => res.json())
           .then(users => {
             alert('Users:\n' + users.map(u => `${u.username} (${u.role})`).join('\n'));
@@ -419,7 +420,7 @@
   
       // --- ADMIN ACTIONS ---
       function updateAnnouncement(text) {
-        // Use correct GET endpoint to update announcement
+        // /announcement/edit?text=...
         fetch(`${API_BASE}/announcement/edit?text=${encodeURIComponent(text)}`)
           .then(res => res.json())
           .then(() => alert('Announcement updated!'))
@@ -427,7 +428,13 @@
       }
 
       function updateUser(username, field, value) {
-        // Use GET request to update user
+        // Only allowed fields: new_username, name, rank, last_used_ip
+        // Validate field name
+        const allowed = ['new_username', 'name', 'rank', 'last_used_ip'];
+        if (!allowed.includes(field)) {
+          alert('Invalid field. Allowed: new_username, name, rank, last_used_ip');
+          return;
+        }
         fetch(`${API_BASE}/user/edit/${encodeURIComponent(username)}?${encodeURIComponent(field)}=${encodeURIComponent(value)}`)
           .then(res => res.json())
           .then(() => alert(`User "${username}" updated: ${field} = ${value}`))
@@ -436,13 +443,13 @@
 
       function deleteUser(username) {
         if (!confirm(`Are you sure you want to delete user "${username}"?`)) return;
-        // Use GET request to delete user
+        // /user/delete/{username}
         fetch(`${API_BASE}/user/delete/${encodeURIComponent(username)}`)
           .then(res => res.json())
           .then(() => alert(`User "${username}" deleted.`))
           .catch(() => alert('Failed to delete user.'));
       }
-      
+
       // --- api docs command ---
       if (cmd === 'api') {
         window.open(`${API_BASE}/docs`, '_blank');

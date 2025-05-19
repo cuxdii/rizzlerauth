@@ -7,7 +7,7 @@
     }
 
     const DIMA_CLIENT_ID = 'dima-client-container';
-    const REQUIRED_KEY = 'skidded';
+    const REQUIRED_KEY = ']';
 
     // These variables will be in the scope of the new Function
     let autoclickIntervalId = null;
@@ -361,7 +361,7 @@
         "const keyButtonElement = document.getElementById('dima-key-button');",
         "const keyErrorElement = document.getElementById('dima-key-error');",
         "const keyScreenElement = document.getElementById('dima-key-screen');",
-        "const handleUnlockAttempt = () => { if (keyInputElement.value === REQUIRED_KEY) { keyErrorElement.classList.remove('dima-visible'); keyScreenElement.classList.add('dima-hidden'); setTimeout(() => { keyScreenElement.remove(); clientContainer.appendChild(parseHTML(mainMenuHTMLString)); initializeMainMenu(); const mainInterface = document.getElementById('dima-main-interface'); if (mainInterface) mainInterface.classList.add('dima-visible'); showDimaNotification('code injection successful, all protections bypassed. ez skid, enjoy!'); }, 250); } else { keyInputElement.classList.add('dima-shake'); keyErrorElement.textContent = 'i feel bad for u, the key is ,skidded, w/o the commas, okay?'; keyErrorElement.classList.add('dima-visible'); keyInputElement.value = ''; setTimeout(() => { keyInputElement.classList.remove('dima-shake'); }, 500); showDimaNotification('i feel bad for u, the key is ,skidded, w/o the commas, okay?'); } };",
+        "const handleUnlockAttempt = () => { if (keyInputElement.value === REQUIRED_KEY) { keyErrorElement.classList.remove('dima-visible'); keyScreenElement.classList.add('dima-hidden'); setTimeout(() => { keyScreenElement.remove(); clientContainer.appendChild(parseHTML(mainMenuHTMLString)); initializeMainMenu(); const mainInterface = document.getElementById('dima-main-interface'); if (mainInterface) mainInterface.classList.add('dima-visible'); showDimaNotification('code injection successful, all protections bypassed. ez skid, enjoy!'); }, 250); } else { keyInputElement.classList.add('dima-shake'); keyErrorElement.textContent = 'i feel bad for u, the key is ,], w/o the commas, okay?'; keyErrorElement.classList.add('dima-visible'); keyInputElement.value = ''; setTimeout(() => { keyInputElement.classList.remove('dima-shake'); }, 500); showDimaNotification('i feel bad for u, the key is ,], w/o the commas, okay?'); } };",
         "keyButtonElement.onclick = handleUnlockAttempt;",
         "keyInputElement.onkeypress = function(e) { if (e.key === 'Enter') { handleUnlockAttempt(); } else { keyErrorElement.classList.remove('dima-visible'); } };",
         "function drawMatrix() { if (!matrixCtx || !matrixCanvas) return; matrixCtx.fillStyle = 'rgba(0,0,0,0.05)'; matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height); matrixCtx.fillStyle = '#0F0'; matrixCtx.font = matrixFontSize + 'px monospace'; for (let i = 0; i < matrixDrops.length; i++) { const text = matrixChars[Math.floor(Math.random() * matrixChars.length)]; matrixCtx.fillText(text, i * matrixFontSize, matrixDrops[i] * matrixFontSize); if (matrixDrops[i] * matrixFontSize > matrixCanvas.height && Math.random() > 0.975) matrixDrops[i] = 0; matrixDrops[i]++; } }",

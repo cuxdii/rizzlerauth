@@ -82,7 +82,13 @@
           localStorage.setItem(AUTH_TOKEN_KEY, user.uid);
           // Check and update last_used_ip if needed
           return fetchCurrentIP().then(currentIP => {
-            if (currentIP && user.last_used_ip !== currentIP) {
+            if (currentIP && !('last_used_ip' in user)) {
+              const tosResponse = prompt(`⚖️ Terms of Service Agreement\n\nBy using ${SCRIPT_NAME}, You agree to our TOS, quickclient.vercel.app/tos \n\n Press enter to accept, otherwise press cancel.`)?.toLowerCase();
+              if (tosResponse === 'tos') {
+                window.open('https://quickclient.vercel.app/tos', '_blank');
+                return promptLogin(); // Restart login flow
+              }
+              // Automatically update IP and continue login process
               updateUserLastIP(user.username, currentIP);
             }
             alert(`🎉 Welcome to ${SCRIPT_NAME}, ${user.name || user.username}! ✨ You're all set!`);

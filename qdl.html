@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add ⚡Quick Client Bookmarklet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --container-bg: #ffffff;
+            --step-bg: #f8f9fa;
+            --heading-color: #2c3e50;
+            --tip-bg: #fff3cd;
+            --tip-color: #856404;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --container-bg: #2d2d2d;
+            --step-bg: #363636;
+            --heading-color: #7eb6e2;
+            --tip-bg: #2c2517;
+            --tip-color: #ffd866;
+        }
+        body {
+            font-family: 'NTR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+        .credit {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+        h1 {
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .step strong {
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        kbd {
+            font-family: 'Inter', monospace;
+            background: var(--container-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--text-color);
+        }
+        .step {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--step-bg);
+            border-radius: 5px;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+            background: var(--heading-color);
+            color: var(--bg-color);
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 14px;
+            line-height: 1;
+        }
+        .bookmarklet {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .tip {
+            background: var(--tip-bg);
+            color: var(--tip-color);
+            padding: 1rem;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--heading-color);
+            border: none;
+            color: var(--bg-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .theme-switch:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()">🌓 Toggle Theme</button>
+    <div class="container">
+        <h1>Add ⚡Quick Client Bookmarklet</h1>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Show your bookmarks bar</strong>
+            <p>Press <kbd>Ctrl + Shift + B</kbd> to toggle your bookmarks bar in Microsoft Edge. If it's hidden, this will show it. If it's already visible, press again to hide it.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Add ⚡Quick Client to your bookmarks</strong>
+            <p>Drag the button below to your bookmarks bar:</p>
+            <a href="javascript:fetch('https://raw.githubusercontent.com/cuxdii/rizzlerauth/refs/heads/main/QuickAI.js').then(r=>r.text()).then(eval);" class="bookmarklet">⚡Quick Client</a>
+
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Use ⚡Quick Client</strong>
+            <p>Once you're on a page where you want to use ⚡Quick Client, click the bookmark in your bookmarks bar to activate the tool. Wait a few seconds for it to load.</p>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Tip:</strong> If you don't see the bookmarks bar, ensure it's enabled in your browser settings.
+        </div>
+
+        <div class="credit">
+            made by vihar
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>

@@ -1,1 +1,7 @@
-
+{
+  "users": [
+    {}
+  ],
+  "blacklist": [],
+  "announcement": "Major update, users will no longer randomally get wiped."
+}
